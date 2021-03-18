@@ -15,7 +15,7 @@ score_b = 0
 
 # Paddle A
 paddle_a = turtle.Turtle()
-paddle_a.speed(0)
+paddle_a.speed(0.5)
 paddle_a.shape("square")
 paddle_a.color("blue")
 paddle_a.shapesize(stretch_wid=5, stretch_len=1)
@@ -34,7 +34,7 @@ paddle_b.goto(350, 0)
 # Ball
 ball = turtle.Turtle()
 ball.speed(0)
-ball.shape("square")
+ball.shape("circle")
 ball.color("red")
 ball.penup()
 ball.goto(0, 0)
@@ -104,6 +104,18 @@ while True:
         ball.sety(-290)
         ball.dy *= -1
         winsound.PlaySound("bounce.wav", winsound.SND_ASYNC)
+
+    elif paddle_a.ycor() > 290:
+        paddle_a.sety(290)
+
+    elif paddle_a.ycor() < -290:
+        paddle_a.sety(-290)
+
+    elif paddle_b.ycor() > 290:
+        paddle_b.sety(290)
+
+    elif paddle_b.ycor() < -290:
+        paddle_b.sety(-290)
 
     ## SCORING ##
     if ball.xcor() > 350:
